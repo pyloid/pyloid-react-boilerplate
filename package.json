@@ -1,0 +1,38 @@
+{
+  "name": "pylon-react-boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "run-script-os",
+    "dev:windows": "start npm run vite && .\\venv-pylon\\Scripts\\python .\\src-pylon\\main.py",
+    "dev:linux": "npm run vite & ./venv-pylon/bin/python ./src-pylon/main.py",
+    "dev:macos": "npm run vite & ./venv-pylon/bin/python ./src-pylon/main.py",
+    "vite": "vite",
+    "build": "tsc -b && vite build && run-script-os",
+    "build:windows": ".\\venv-pylon\\Scripts\\pyinstaller build-windows.spec",
+    "lint": "eslint .",
+    "init": "npm install && run-script-os",
+    "init:windows": "python -m venv venv-pylon && .\\venv-pylon\\Scripts\\pip install -r requirements.txt",
+    "init:linux": "python3 venv-pylon && .\\venv-plylon\\bin\\pip install -r requirements.txt",
+    "init:macos": "python venv-pylon && .\\venv-plylon\\bin\\pip install -r requirements.txt"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1",
+    "run-script-os": "^1.1.6"
+  }
+}
