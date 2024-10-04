@@ -1,4 +1,6 @@
-from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production
+import json
+import random
+from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production, get_resource_path
 
 
 app = PylonApp(single_instance=True, icon_path="src-pylon/icons/icon.ico")
@@ -38,6 +40,7 @@ if (is_production()):
         "index.html",
         title="Pylon Browser-production",
         js_apis=[custom()],
+        enable_dev_tools=True,
     )
 else:
     window = app.create_window(
