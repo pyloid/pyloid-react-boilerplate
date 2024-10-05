@@ -26,10 +26,10 @@ app.setup_tray()
 
 ############################## Bridge ##############################
 class custom(PylonAPI):
-    @Bridge(str, int, result=str)
-    def echo(self, message, message2):
-        print(type(message), type(message2))
-        return f"Message received from Python: {message}, {message2}"
+    @Bridge(str, result=str)
+    def echo(self, message):
+        print(message)
+        return f"Message received from Python: {message}"
 
     @Bridge(result=str)
     def getAppVersion(self):

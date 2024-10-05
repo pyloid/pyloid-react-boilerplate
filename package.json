@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "run-script-os",
-    "dev:windows": "concurrently \"npm run vite\" \".\\venv-pylon\\Scripts\\python .\\src-pylon\\main.py\"",
-    "dev:linux": "concurrently \"npm run vite\" \"./venv-pylon/bin/python ./src-pylon/main.py\"",
-    "dev:macos": "concurrently \"npm run vite\" \"./venv-pylon/bin/python ./src-pylon/main.py\"",
+    "dev:windows": "concurrently --raw --names \"front,pylon\" \"npm run vite\" \".\\venv-pylon\\Scripts\\python .\\src-pylon\\main.py\"",
+    "dev:linux": "concurrently --raw --names \"front,pylon\" \"npm run vite\" \"./venv-pylon/bin/python ./src-pylon/main.py\"",
+    "dev:macos": "concurrently --raw --names \"front,pylon\" \"npm run vite\" \"./venv-pylon/bin/python ./src-pylon/main.py\"",
     "vite": "vite",
     "build": "tsc -b && vite build && run-script-os",
     "build:windows": ".\\venv-pylon\\Scripts\\pyinstaller build-windows.spec",

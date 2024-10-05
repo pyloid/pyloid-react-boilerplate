@@ -1,5 +1,7 @@
 # How to use Pylon Boilerplate
 
+### Currently, window and linux are available for building. macos will be added in the next version.
+
 1. Initialize the project:
 
 ```bash
@@ -17,5 +19,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-### Currently, only Windows is available for building. The rest will be added in the next version.
