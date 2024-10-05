@@ -1,6 +1,4 @@
-import json
-import random
-from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production, get_resource_path
+from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production
 
 
 app = PylonApp(single_instance=True, icon_path="src-pylon/icons/icon.ico")
