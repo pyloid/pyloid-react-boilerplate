@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
   useEffect(() => {
-    console.log((window as any).pylon);
+    console.log(window.pylon);
   }, []);
-
-  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -20,18 +18,15 @@ function App() {
           <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React + Pylon</h1>
       <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => window.pylon.custom.create_window()}>
+          Create Window!
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }

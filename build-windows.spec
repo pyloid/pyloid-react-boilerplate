@@ -1,8 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-import sys
-import os
-
 block_cipher = None
 
 a = Analysis(['src-pylon/main.py'],

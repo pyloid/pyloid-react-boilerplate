@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-document.addEventListener('pylonInitReady', function () {
+document.addEventListener('pylonReady', function () {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <App />
