@@ -7,11 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist-ssr
-build
-*.local
-package-lock.json
+
 
 # Editor directories and files
 .vscode/*
@@ -27,3 +23,8 @@ package-lock.json
 # python build
 venv-pylon
 dist
+node_modules
+dist-ssr
+build
+*.local
+package-lock.json

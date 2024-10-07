@@ -1,7 +1,13 @@
-from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production
+from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production, get_production_path
+import os
 
 
-app = PylonApp(single_instance=True, icon_path="src-pylon/icons/icon.ico")
+app = PylonApp(app_name="Pylon-App", single_instance=True)
+
+if (is_production()):
+    app.set_icon(os.path.join(get_production_path(), "icons/icon.png"))
+else:
+    app.set_icon("src-pylon/icons/icon.png")
 
 
 ############################## Tray ################################
@@ -19,36 +25,35 @@ app.set_tray_menu_items(
         {"label": "Exit", "callback": app.quit},
     ]
 )
-app.setup_tray()
+app.run_tray()
 ####################################################################
 
 ############################## Bridge ##############################
 class custom(PylonAPI):
-    @Bridge(str, result=str)
-    def echo(self, message):
-        print(message)
-        return f"Message received from Python: {message}"
-
-    @Bridge(result=str)
-    def getAppVersion(self):
-        return "1.0.0"
-    
     @Bridge(result=str)
     def create_window(self):
+        window = app.create_window(
+            title="Pylon Browser-2",
+            js_apis=[custom()],
+        )
+        
+        window.set_size(800, 600)
+        window.set_position(0, 0)
+
         if (is_production()):
-            # production
-            window = app.create_window(
-                "index.html",
-                title="Pylon Browser-production",
-                js_apis=[custom()],
-            )
+            window.set_dev_tools(False)
+            window.load_file(os.path.join(get_production_path(), "build/index.html"))
         else:
-            window = app.create_window(
-                "http://localhost:5173",
-                title="Pylon Browser-dev",
-                js_apis=[custom()],
-                enable_dev_tools=True,
-            )
+            window.set_dev_tools(True)
+            window.load_url("http://localhost:5173")
+ 
+        print(window.get_all_shortcuts())
+
+        
+        
+        window.show()
+        window.focus()
+
         return window.id
 ####################################################################
 
@@ -56,17 +61,18 @@ class custom(PylonAPI):
 if (is_production()):
     # production
     window = app.create_window(
-        "index.html",
         title="Pylon Browser-production",
         js_apis=[custom()],
     )
+    window.load_file(os.path.join(get_production_path(), "build/index.html"))
 else:
     window = app.create_window(
-        "http://localhost:5173",
         title="Pylon Browser-dev",
         js_apis=[custom()],
-        enable_dev_tools=True,
+        dev_tools=True,
     )
+    window.load_url("http://localhost:5173")
 
+window.show_and_focus()
 
 app.run() # run
