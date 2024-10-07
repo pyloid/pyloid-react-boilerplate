@@ -12,11 +12,12 @@
     "build": "tsc -b && vite build && run-script-os",
     "build:windows": ".\\venv-pylon\\Scripts\\pyinstaller build-windows.spec",
     "build:linux": "./venv-pylon/bin/pyinstaller build-linux.spec",
+    "build:macos": "./venv-pylon/bin/pyinstaller build-macos.spec",
     "lint": "eslint .",
     "init": "npm install && run-script-os",
     "init:windows": "python -m venv venv-pylon && .\\venv-pylon\\Scripts\\pip install -r requirements.txt",
     "init:linux": "python3 -m venv venv-pylon && ./venv-pylon/bin/pip install -r requirements.txt",
-    "init:macos": "python -m venv venv-pylon && ./venv-pylon/bin/pip install -r requirements.txt"
+    "init:macos": "python3 -m venv venv-pylon && ./venv-pylon/bin/pip install -r requirements.txt"
   },
   "dependencies": {
     "react": "^18.3.1",
