@@ -1,7 +1,5 @@
 # How to use Pylon Boilerplate
 
-### Currently, window and linux are available for building. macos will be added in the next version.
-
 1. Initialize the project:
 
 ```bash
