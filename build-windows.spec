@@ -3,20 +3,20 @@
 block_cipher = None
 
 a = Analysis(['src-pylon/main.py'],
-             pathex=[],
-             binaries=[],
-             datas=[('src-pylon/icons/', 'icons/'),
-             ('src/', 'src/'),
-             ],
-             hiddenimports=['PySide6.QtWebEngineCore'],
-             hookspath=[],
-             hooksconfig={},
-             runtime_hooks=[],
-             excludes=[],
-             win_no_prefer_redirects=False,
-             win_private_assemblies=False,
-             cipher=block_cipher,
-             noarchive=False)
+            pathex=[],
+            binaries=[],
+            datas=[('src-pylon/icons/', 'icons/'),
+            ('src/', 'src/'),
+            ],
+            hiddenimports=[],
+            hookspath=[],
+            hooksconfig={},
+            runtime_hooks=[],
+            excludes=['PySide6.QtQml', 'PySide6.QtSql', 'PySide6.QtTest', 'PySide6.Qt3D', 'PySide6.QtSensors', 'PySide6.QtMultimedia', 'PySide6.QtCharts', 'PySide6.QtGraphs', 'PySide6.QtDataVisualization', 'PySide6.QtQuick', 'PySide6.QtBluetooth', 'PySide6.QtLocation', 'PySide6.QtDesigner', 'PySide6.QtUiTools', 'PySide6.QtHelp', 'PySide6.QtXml', 'Pyside6.QtOpenGL', 'Pyside6.QtPDF'],
+            win_no_prefer_redirects=False,
+            win_private_assemblies=False,
+            cipher=block_cipher,
+            noarchive=False)
 
 pyz = PYZ(a.pure, a.zipped_data,
           cipher=block_cipher)
