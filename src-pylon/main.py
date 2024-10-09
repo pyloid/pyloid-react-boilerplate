@@ -1,7 +1,6 @@
 from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production, get_production_path
 import os
 
-
 app = PylonApp(app_name="Pylon-App", single_instance=True)
 
 if (is_production()):
