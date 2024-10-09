@@ -45,10 +45,6 @@ class custom(PylonAPI):
         else:
             window.set_dev_tools(True)
             window.load_url("http://localhost:5173")
- 
-        print(window.get_all_shortcuts())
-
-        
         
         window.show()
         window.focus()
