@@ -1,4 +1,4 @@
-# How to use Pylon Boilerplate
+# How to use Pyloid Boilerplate
 
 1. Initialize the project:
 
