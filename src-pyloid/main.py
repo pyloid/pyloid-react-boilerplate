@@ -1,12 +1,12 @@
-from pylon import PylonApp, PylonAPI, Bridge, TrayEvent, is_production, get_production_path
+from pyloid import Pyloid, PyloidAPI, Bridge, TrayEvent, is_production, get_production_path
 import os
 
-app = PylonApp(app_name="Pylon-App", single_instance=True)
+app = Pyloid(app_name="Pyloid-App", single_instance=True)
 
 if (is_production()):
     app.set_icon(os.path.join(get_production_path(), "icons/icon.png"))
 else:
-    app.set_icon("src-pylon/icons/icon.png")
+    app.set_icon("src-pyloid/icons/icon.png")
 
 
 ############################## Tray ################################
@@ -28,7 +28,7 @@ app.run_tray()
 ####################################################################
 
 ############################## Bridge ##############################
-class custom(PylonAPI):
+class custom(PyloidAPI):
     @Bridge(result=str)
     def create_window(self):
         window = app.create_window(

@@ -2,11 +2,11 @@
 
 block_cipher = None
 
-a = Analysis(['src-pylon/main.py'],
+a = Analysis(['src-pyloid/main.py'],
             pathex=[],
             binaries=[],
-            datas=[('src-pylon/icons/', 'icons/'),
-            ('src/', 'src/'),
+            datas=[('src-pyloid/icons/', 'icons/'),
+            ('build/', 'build/'),
             ],
             hiddenimports=[],
             hookspath=[],
@@ -26,7 +26,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='pylon-app',
+    name='pyloid-app',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -37,7 +37,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['src-pylon/icons/icon.ico'],
+    icon=['src-pyloid/icons/icon.ico'],
 )
 
 coll = COLLECT(
@@ -48,5 +48,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='pylon-app'
+    name='pyloid-app'
 )

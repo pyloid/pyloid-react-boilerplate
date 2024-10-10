@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['src-pylon/main.py'],
+    ['src-pyloid/main.py'],
     pathex=[],
     binaries=[],
-    datas=[('src-pylon/icons/', 'icons/'),
+    datas=[('src-pyloid/icons/', 'icons/'),
              ('build/', 'build/'),
              ],
     hiddenimports=['PySide6.QtWebEngineCore'],
@@ -23,7 +23,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='pylon-app',
+    name='pyloid-app',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -42,11 +42,11 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='pylon-app',
+    name='pyloid-app',
 )
 app = BUNDLE(
     coll,
-    name='pylon-app.app',
-    icon='src-pylon/icons/icon.icns',
+    name='pyloid-app.app',
+    icon='src-pyloid/icons/icon.icns',
     bundle_identifier=None,
 )

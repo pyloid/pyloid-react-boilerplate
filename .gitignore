@@ -21,7 +21,7 @@ lerna-debug.log*
 *.sw?
 
 # python build
-venv-pylon
+venv-pyloid
 dist
 node_modules
 dist-ssr

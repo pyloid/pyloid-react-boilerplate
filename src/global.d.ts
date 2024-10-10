@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    pylon: any;
+    pyloid: any;
   }
 }
 

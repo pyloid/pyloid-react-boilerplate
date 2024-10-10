@@ -17,6 +17,9 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.logo.pyloid:hover {
+  filter: drop-shadow(0 0 2em #92e7ffaa);
+}
 
 @keyframes logo-spin {
   from {
