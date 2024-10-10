@@ -32,7 +32,7 @@ class custom(PyloidAPI):
     @Bridge(result=str)
     def create_window(self):
         window = app.create_window(
-            title="Pylon Browser-2",
+            title="Pyloid Browser-2",
             js_apis=[custom()],
         )
         
@@ -56,13 +56,13 @@ class custom(PyloidAPI):
 if (is_production()):
     # production
     window = app.create_window(
-        title="Pylon Browser-production",
+        title="Pyloid Browser-production",
         js_apis=[custom()],
     )
     window.load_file(os.path.join(get_production_path(), "build/index.html"))
 else:
     window = app.create_window(
-        title="Pylon Browser-dev",
+        title="Pyloid Browser-dev",
         js_apis=[custom()],
         dev_tools=True,
     )
