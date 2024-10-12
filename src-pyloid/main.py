@@ -5,13 +5,16 @@ app = Pyloid(app_name="Pyloid-App", single_instance=True)
 
 if (is_production()):
     app.set_icon(os.path.join(get_production_path(), "icons/icon.png"))
+    app.set_tray_icon(os.path.join(get_production_path(), "icons/icon.png"))
 else:
     app.set_icon("src-pyloid/icons/icon.png")
+    app.set_tray_icon("src-pyloid/icons/icon.png")
 
 
 ############################## Tray ################################
 def on_double_click():
     print("Tray icon was double-clicked.")
+
 
 app.set_tray_actions(
     {
@@ -20,14 +23,15 @@ app.set_tray_actions(
 )
 app.set_tray_menu_items(
     [
-        {"label": "Show Window", "callback": app.show_main_window},
+        {"label": "Show Window", "callback": app.show_and_focus_main_window},
         {"label": "Exit", "callback": app.quit},
     ]
 )
-app.run_tray()
 ####################################################################
 
 ############################## Bridge ##############################
+
+
 class custom(PyloidAPI):
     @Bridge(result=str)
     def create_window(self):
@@ -35,17 +39,18 @@ class custom(PyloidAPI):
             title="Pyloid Browser-2",
             js_apis=[custom()],
         )
-        
+
         window.set_size(800, 600)
         window.set_position(0, 0)
 
         if (is_production()):
             window.set_dev_tools(False)
-            window.load_file(os.path.join(get_production_path(), "build/index.html"))
+            window.load_file(os.path.join(
+                get_production_path(), "build/index.html"))
         else:
             window.set_dev_tools(True)
             window.load_url("http://localhost:5173")
-        
+
         window.show()
         window.focus()
 
@@ -70,4 +75,4 @@ else:
 
 window.show_and_focus()
 
-app.run() # run
+app.run()  # run
