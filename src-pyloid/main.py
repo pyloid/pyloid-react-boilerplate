@@ -1,9 +1,16 @@
-from pyloid import Pyloid, PyloidAPI, Bridge, TrayEvent, is_production, get_production_path
+from pyloid import (
+    Pyloid,
+    PyloidAPI,
+    Bridge,
+    TrayEvent,
+    is_production,
+    get_production_path,
+)
 import os
 
 app = Pyloid(app_name="Pyloid-App", single_instance=True)
 
-if (is_production()):
+if is_production():
     app.set_icon(os.path.join(get_production_path(), "icons/icon.png"))
     app.set_tray_icon(os.path.join(get_production_path(), "icons/icon.png"))
 else:
@@ -43,10 +50,9 @@ class custom(PyloidAPI):
         window.set_size(800, 600)
         window.set_position(0, 0)
 
-        if (is_production()):
+        if is_production():
             window.set_dev_tools(False)
-            window.load_file(os.path.join(
-                get_production_path(), "build/index.html"))
+            window.load_file(os.path.join(get_production_path(), "build/index.html"))
         else:
             window.set_dev_tools(True)
             window.load_url("http://localhost:5173")
@@ -55,10 +61,12 @@ class custom(PyloidAPI):
         window.focus()
 
         return window.id
+
+
 ####################################################################
 
 
-if (is_production()):
+if is_production():
     # production
     window = app.create_window(
         title="Pyloid Browser-production",
