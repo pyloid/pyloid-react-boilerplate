@@ -42,7 +42,7 @@ app.set_tray_menu_items(
 class custom(PyloidAPI):
     @Bridge(result=str)
     def create_window(self):
-        window = app.create_window(
+        window = self.app.create_window(
             title="Pyloid Browser-2",
             js_apis=[custom()],
         )
