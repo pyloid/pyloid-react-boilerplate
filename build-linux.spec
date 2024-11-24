@@ -2,7 +2,7 @@
 
 block_cipher = None
 
-a = Analysis(['src-pylon/main.py'],
+a = Analysis(['src-pyloid/main.py'],
             pathex=[],
             binaries=[],
             datas=[('src-pyloid/icons/', 'icons/'),
