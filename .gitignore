@@ -7,8 +7,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -20,11 +18,26 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# python build
-venv-pyloid
-dist
+# node
 node_modules
 dist-ssr
 build
 *.local
+
+# pyloid
+venv-pyloid
+
+# pyinstaller
+dist
+
+# npm
 package-lock.json
+
+# yarn
+yarn.lock
+
+# pnpm
+pnpm-lock.yaml
+
+# bun
+bun-lock.yaml
